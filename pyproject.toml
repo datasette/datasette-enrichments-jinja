@@ -1,0 +1,30 @@
+[project]
+name = "datasette-enrichments-jinja"
+version = "0.1a0"
+description = "Datasette enrichment for evaluating templates in a Jinja sandbox"
+readme = "README.md"
+authors = [{name = "Simon Willison"}]
+license = {text = "Apache-2.0"}
+classifiers=[
+    "Framework :: Datasette",
+    "License :: OSI Approved :: Apache Software License"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "datasette-enrichments"
+]
+
+[project.urls]
+Homepage = "https://github.com/datasette/datasette-enrichments-jinja"
+Changelog = "https://github.com/datasette/datasette-enrichments-jinja/releases"
+Issues = "https://github.com/datasette/datasette-enrichments-jinja/issues"
+CI = "https://github.com/datasette/datasette-enrichments-jinja/actions"
+
+[project.entry-points.datasette]
+enrichments_jinja = "datasette_enrichments_jinja"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
