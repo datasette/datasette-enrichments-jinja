@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datasette_enrichments import Enrichment
 from datasette import hookimpl
 
@@ -42,7 +43,7 @@ class JinjaSandbox(Enrichment):
 
         return ConfigForm
 
-    async def initialize(self, db, table, config):
+    async def initialize(self, datasette, db, table, config):
         # Ensure column exists
         output_column = config["output_column"][0]
 
@@ -55,6 +56,7 @@ class JinjaSandbox(Enrichment):
 
     async def enrich_batch(
         self,
+        datasette: Datasette,
         db: Database,
         table: str,
         rows: List[dict],

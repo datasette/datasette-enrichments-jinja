@@ -21,11 +21,12 @@ async def test_enrichment(tmpdir):
     db["items"].insert_all(rows)
     ds_db = datasette.get_database("data")
     enrichment = JinjaSandbox()
-    await enrichment.initialize(ds_db, "items", config)
+    await enrichment.initialize(datasette, ds_db, "items", config)
     # It should now have a template_output column
     assert "template_output" in db["items"].columns_dict
     # Now enrich the batch
     await enrichment.enrich_batch(
+        datasette=datasette,
         db=ds_db,
         table="items",
         rows=rows,
