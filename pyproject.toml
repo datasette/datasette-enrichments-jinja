@@ -1,6 +1,6 @@
 [project]
 name = "datasette-enrichments-jinja"
-version = "0.1a0"
+version = "0.1a1"
 description = "Datasette enrichment for evaluating templates in a Jinja sandbox"
 readme = "README.md"
 authors = [{name = "Simon Willison"}]
