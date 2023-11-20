@@ -15,8 +15,8 @@ async def test_enrichment(tmpdir):
         {"id": 3, "name": "Three", "description": "Third item"},
     ]
     config = {
-        "output_column": ["template_output"],
-        "template": ["{{ row['name'] }}: {{ row['description'] }}"],
+        "output_column": "template_output",
+        "template": "{{ row['name'] }}: {{ row['description'] }}",
     }
     db["items"].insert_all(rows)
     ds_db = datasette.get_database("data")
@@ -32,8 +32,8 @@ async def test_enrichment(tmpdir):
         rows=rows,
         pks=["id"],
         config={
-            "output_column": ["template_output"],
-            "template": ["{{ row['name'] }}: {{ row['description'] }}"],
+            "output_column": "template_output",
+            "template": "{{ row['name'] }}: {{ row['description'] }}",
         },
         job_id=1,
     )
